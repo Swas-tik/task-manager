@@ -74,6 +74,11 @@ nav ul li a{
   text-decoration-line: none; 
 }
 
+.warning{
+  color: red;
+  font-weight: 600;
+}
+
 @media (max-width: 600px){
         nav ul li a{
           font-size: 12px;

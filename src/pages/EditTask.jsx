@@ -9,7 +9,7 @@ const EditTask = () => {
   const navigate = useNavigate();
   const editingTask = useSelector((state) => state.tasks.tasks);
   const {id} = useParams()
-
+  const [warning, setWarning] = useState("")
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -35,7 +35,7 @@ const task = editingTask.find(task=> task.id === parseInt(id))
     e.preventDefault();
 
     if (!data.title || !data.description || !data.dueDate) {
-      alert("Please fill in all fields!");
+      setWarning("Please fill in all fields!");
       return;
     }
 
@@ -45,9 +45,6 @@ const task = editingTask.find(task=> task.id === parseInt(id))
       // Reset form after submitting
       setData({ title: "", description: "", dueDate: "" });
 
-      alert(
-        editingTask ? "Task updated successfully!" : "Task added successfully!"
-      );
       navigate("/dashboard");
     }
   
@@ -96,6 +93,7 @@ const task = editingTask.find(task=> task.id === parseInt(id))
               onChange={handleChange}
             />
           </label>
+          <div className="warning">{warning}</div>
           <button type="submit" onClick={handleSubmit}>
             Create Task
           </button>
