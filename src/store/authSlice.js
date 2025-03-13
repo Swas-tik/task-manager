@@ -18,12 +18,10 @@ const authSlice = createSlice({
         return user.email === email && user.password === password;
       });
 
-      if (!existingUser) {
-        alert("❌ Invalid username or password!");
-      } else {
+      
         sessionStorage.setItem("loggedInUser", JSON.stringify(existingUser)); // Store logged-in user
         state.user = existingUser;
-      }
+      
     },
     Logout: (state) => {
       sessionStorage.removeItem("loggedInUser");
