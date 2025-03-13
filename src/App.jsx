@@ -5,9 +5,10 @@ import Dashboard from "./components/Dashboard";
 import TaskBuilder from "./pages/TaskBuilder";
 import { Provider } from "react-redux";
 import Store from "./store/Store";
-import './App.css'
+import "./App.css";
 import EditTask from "./pages/EditTask";
 import Footer from "./components/footer/Footer";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -17,12 +18,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/create-task" element={<TaskBuilder />} />
-            <Route path="/edit-task/:id" element={<EditTask/>}/>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/create-task" element={<TaskBuilder />} />
+              <Route path="/edit-task/:id" element={<EditTask />} />
+            </Route>
           </Routes>
 
-          <Footer/>
+          <Footer />
         </BrowserRouter>
       </Provider>
     </>
