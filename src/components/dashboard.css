@@ -49,6 +49,10 @@ table button{
 
 }
 
+.dropdown-container{
+  display: none;
+}
+
 @media (max-width: 600px) {
     h1{
       font-size: 28px;
