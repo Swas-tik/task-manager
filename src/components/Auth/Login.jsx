@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import "./auth.css";
 import { Link, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,11 +7,14 @@ import { userLogin } from "../../store/authSlice";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [warning, setWarning] = useState('')
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state)=> state.auth.user)
 
+
   useEffect(()=>{
+   
     if(user){
       navigate("/dashboard")
     }
@@ -23,6 +26,14 @@ const Login = () => {
     const userdata = { id: crypto.randomUUID(), email, password };
     dispatch(userLogin(userdata));
 
+    const existingUsers = JSON.parse(sessionStorage.getItem("users")) || [];
+    const userExists = existingUsers.some(
+      (user)=> {user.email === userdata.email || user.password === userdata.password} 
+    )
+      
+    if(!userExists){
+        setWarning("Invalid Username or Password!")
+    }
     setEmail("");
     setPassword("");
   };
@@ -53,7 +64,7 @@ const Login = () => {
             required
           />
         </label>
-
+          <div className="warning">{warning}</div>
         <button type="submit" onClick={handleSubmit}>
           Login
         </button>

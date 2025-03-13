@@ -8,13 +8,12 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [user, setUser] = useState([])
+  const [warning, setWarning] = useState('')
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setUser([...user, {username, email, password}])
 
     setUsername("");
     setEmail("");
@@ -28,7 +27,7 @@ const Signup = () => {
     );
 
     if (userExists) {
-      alert("Username already exists! Please choose a different one.");
+      setWarning("Username already exists!");
     } else {
       dispatch(userSignup(usersData));
       alert("Signup successful! Please log in.");
@@ -71,6 +70,7 @@ const Signup = () => {
             required
           />
         </label>
+        <div className="warning">{warning}</div>
         <button type="Signup" onClick={handleSubmit}>
           Sign In
         </button>
