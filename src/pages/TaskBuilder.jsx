@@ -10,7 +10,7 @@ const TaskBuilder = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
-
+  const [warning, setWarning] = useState()
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -36,7 +36,7 @@ const TaskBuilder = () => {
     e.preventDefault();
 
     if (!data.title || !data.description || !data.dueDate) {
-      alert("Please fill in all fields!");
+      setWarning("Please fill in all fields!");
       return;
     }
 
@@ -100,6 +100,7 @@ const TaskBuilder = () => {
               onChange={handleChange}
             />
           </label>
+          <div className="warning">{warning}</div>
           <button type="submit" onClick={handleSubmit}>
             Create Task
           </button>
