@@ -1,0 +1,84 @@
+.task-builder-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.task-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  /* height: 250px; */
+  border: 1px solid #111;
+  border-radius: 12px;
+  padding: 20px;
+
+}
+
+.task-form label{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  gap: 8px;
+}
+
+.task-form button{
+  padding: 8px;
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 250px;
+}
+
+.task-form label input{
+  padding: 5px;
+  font-size: 12px;
+}
+
+nav{
+  background-color: #e6e1e1;
+  color: #111;
+  margin: 0;
+  padding: 10px;
+
+}
+
+nav ul{
+  display: flex;
+  justify-content: end;
+  align-items: center; 
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+}
+
+nav ul button{
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav ul li a{
+  color: #111;
+  text-align: right;
+  cursor: pointer;
+  text-decoration-line: none; 
+}
+
+@media (max-width: 600px){
+        nav ul li a{
+          font-size: 12px;
+        }
+        nav ul li button{
+          font-size: 12px;
+        }
+}

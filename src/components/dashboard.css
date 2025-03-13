@@ -1,0 +1,125 @@
+.task-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+table,th, td {
+  border: 1px solid;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,td{
+  padding: 10px;
+}
+
+table button{
+  padding: 10px 16px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
+.delete{
+  background-color: rgb(221, 2, 2);
+  color: white;
+  
+}
+.complete{
+  background-color: rgb(45, 112, 45);
+  color: white;
+
+}
+.edit{
+  background-color: rgb(64, 64, 248);
+  color: white;
+
+}
+
+@media (max-width: 600px) {
+    h1{
+      font-size: 28px;
+    }
+
+    th,td{
+      font-size: 12px;
+    }
+
+    .dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .task-actions {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    /* Dropdown styles */
+    .task-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%; /* ✅ Positions below the button */
+      right: 0; /* ✅ Aligns with the button */
+      background: rgb(45, 112, 45);
+      border: 1px solid #ddd;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      width: 100px;
+      z-index: 10;
+    }
+  
+    .task-dropdown button {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin: 0px;
+      text-align: left;
+      border: none;
+      background: none;
+      color: white;
+      cursor: pointer;
+    }
+  
+    .task-dropdown button:hover {
+      background: #3d853b;
+    }
+  
+    /* Show dropdown when active */
+    .show-dropdown {
+      display: block;
+    }
+  
+    /* Style the dropdown toggle button */
+    .dropdown-toggle {
+      display: block;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  
+    /* Hide normal buttons on mobile */
+    .edit, .delete, .complete {
+      display: none;
+    }
+}
+
